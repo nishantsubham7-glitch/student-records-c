@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Record Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="app-header">
+      <h1>Student Record Management System</h1>
+      <p>Add, search, filter, and manage student records cleanly.</p>
+    </header>
+
+    <section class="summary-grid" aria-label="Student summary">
+      <div class="summary-card">
+        <span>Total Students</span>
+        <strong id="total-students">0</strong>
+      </div>
+      <div class="summary-card">
+        <span>Average Marks</span>
+        <strong id="average-marks">0.00</strong>
+      </div>
+      <div class="summary-card">
+        <span>Highest Marks</span>
+        <strong id="highest-marks">0.00</strong>
+      </div>
+    </section>
+
+    <section class="card" aria-label="Add student record">
+      <h2>Add Student Record</h2>
+      <form id="student-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="roll">Roll Number</label>
+            <input type="number" id="roll" min="1" placeholder="e.g., 101" required />
+          </div>
+
+          <div class="form-group">
+            <label for="name">Student Name</label>
+            <input type="text" id="name" placeholder="e.g., Rohit Kumar" required />
+          </div>
+
+          <div class="form-group">
+            <label for="course">Course</label>
+            <input type="text" id="course" placeholder="e.g., BCA" required />
+          </div>
+
+          <div class="form-group">
+            <label for="marks">Marks (0-100)</label>
+            <input
+              type="number"
+              id="marks"
+              min="0"
+              max="100"
+              step="0.01"
+              placeholder="e.g., 84.5"
+              required
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Student</button>
+      </form>
+    </section>
+
+    <section class="card" aria-label="Student records table">
+      <div class="toolbar">
+        <h2>Student Records</h2>
+        <div class="toolbar-actions">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search roll no, name, or course..."
+          />
+          <button type="button" id="clear-all-btn" class="btn btn-secondary">
+            Clear All
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Roll No</th>
+              <th>Name</th>
+              <th>Course</th>
+              <th>Marks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="records-body">
+            <tr>
+              <td colspan="5" class="empty">No student records yet. Add one above.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
